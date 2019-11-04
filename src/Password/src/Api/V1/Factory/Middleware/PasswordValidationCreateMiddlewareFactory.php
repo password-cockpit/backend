@@ -155,6 +155,13 @@ class PasswordValidationCreateMiddlewareFactory
                         'options' => [
                             'max' => 100
                         ]
+                    ],
+                    [
+                        'name' => \Zend\Validator\Uri::class,
+                        'options' => [
+                            'allowRelative' => false,
+                            'allowAbsolute' => true
+                        ]
                     ]
                 ]
             ],
