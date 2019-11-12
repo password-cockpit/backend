@@ -15,8 +15,8 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Folder\Api\V1\Facade\FolderFacade;
-use Zend\Expressive\Hal\ResourceGenerator;
-use Zend\Expressive\Hal\HalResponseFactory;
+use Expressive\Hal\ResourceGenerator;
+use Expressive\Hal\HalResponseFactory;
 use Folder\Api\V1\Entity\Folder;
 
 /**

@@ -10,18 +10,18 @@
 
 namespace App\Service;
 
-use Zend\Expressive\Helper\ServerUrlMiddleware;
-use Zend\Expressive\Helper\UrlHelperMiddleware;
+use Expressive\Helper\ServerUrlMiddleware;
+use Expressive\Helper\UrlHelperMiddleware;
 use App\Middleware\OptionsMiddleware;
-use Zend\Expressive\Middleware\ImplicitHeadMiddleware;
-use Zend\Expressive\Helper\BodyParams\BodyParamsMiddleware;
-use Zend\Stratigility\Middleware\NotFoundHandler;
-use Zend\Stratigility\Middleware\ErrorHandler;
+use Expressive\Middleware\ImplicitHeadMiddleware;
+use Expressive\Helper\BodyParams\BodyParamsMiddleware;
+use Laminas\Stratigility\Middleware\NotFoundHandler;
+use Laminas\Stratigility\Middleware\ErrorHandler;
 use Psr\Container\ContainerInterface;
 use Authentication\Api\V1\Middleware\AuthenticationMiddleware;
 use Authorization\Api\V1\Middleware\AuthorizationMiddleware;
-use Zend\Expressive\Router\Middleware\RouteMiddleware;
-use Zend\Expressive\Router\Middleware\DispatchMiddleware;
+use Expressive\Router\Middleware\RouteMiddleware;
+use Expressive\Router\Middleware\DispatchMiddleware;
 use Tuupola\Middleware\JwtAuthentication;
 use App\Middleware\I18nMiddleware;
 use App\Middleware\CorsMiddleware;
@@ -78,7 +78,7 @@ class ApplicationDelegatorFactory
 
         $app->pipe(NotFoundHandler::class);
 
-        \Zend\Expressive\Container\ApplicationConfigInjectionDelegator::injectRoutesFromConfig(
+        \Expressive\Container\ApplicationConfigInjectionDelegator::injectRoutesFromConfig(
             $app,
             $container->get('config')
         );

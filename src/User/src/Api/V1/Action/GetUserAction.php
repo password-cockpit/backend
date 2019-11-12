@@ -16,9 +16,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use App\Service\ProblemDetailsException;
-use Zend\Expressive\Hal\HalResponseFactory;
+use Expressive\Hal\HalResponseFactory;
 use User\Api\V1\Facade\UserFacade;
-use Zend\Expressive\Hal\ResourceGenerator;
+use Expressive\Hal\ResourceGenerator;
 
 /**
  * @SWG\Get(

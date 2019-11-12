@@ -14,10 +14,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Password\Api\V1\Facade\PasswordFacade;
-use Zend\Expressive\Hal\ResourceGenerator;
+use Expressive\Hal\ResourceGenerator;
 use Password\Api\V1\Entity\Password;
-use Zend\Expressive\Hal\HalResponseFactory;
-use Zend\ProblemDetails\ProblemDetailsResponseFactory;
+use Expressive\Hal\HalResponseFactory;
+use Expressive\ProblemDetails\ProblemDetailsResponseFactory;
 
 /**
  *

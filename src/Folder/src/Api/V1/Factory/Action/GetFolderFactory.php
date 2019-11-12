@@ -13,8 +13,8 @@ use Folder\Api\V1\Action\GetFolderAction;
 use Psr\Container\ContainerInterface;
 use Folder\Api\V1\Facade\FolderUserFacade;
 use Folder\Api\V1\Facade\FolderFacade;
-use Zend\Expressive\Hal\ResourceGeneratorFactory;
-use Zend\Expressive\Hal\HalResponseFactory;
+use Expressive\Hal\ResourceGeneratorFactory;
+use Expressive\Hal\HalResponseFactory;
 
 /**
  * Description of GetFolderFactory

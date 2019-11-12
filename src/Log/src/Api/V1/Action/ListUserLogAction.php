@@ -12,9 +12,9 @@ namespace Log\Api\V1\Action;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Expressive\Hal\HalResponseFactory;
+use Expressive\Hal\HalResponseFactory;
 use Log\Api\V1\Facade\LogFacade;
-use Zend\Expressive\Hal\ResourceGenerator;
+use Expressive\Hal\ResourceGenerator;
 use Log\Api\V1\Collection\UserLogCollection;
 
 /**
@@ -106,7 +106,7 @@ class ListUserLogAction implements RequestHandlerInterface
             return $b->getActionDate()->getTimestamp() -
                 $a->getActionDate()->getTimestamp();
         });
-        $logsArrayAdapter = new \Zend\Paginator\Adapter\ArrayAdapter($logs);
+        $logsArrayAdapter = new \Laminas\Paginator\Adapter\ArrayAdapter($logs);
         $logsCollection = new UserLogCollection($logsArrayAdapter);
         $logsCollection->setDefaultItemCountPerPage(
             $this->paginatorConfig['small']

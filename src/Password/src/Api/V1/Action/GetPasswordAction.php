@@ -17,8 +17,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Password\Api\V1\Facade\PasswordFacade;
 use File\Api\V1\Facade\FileFacade;
-use Zend\Expressive\Hal\ResourceGenerator;
-use Zend\Expressive\Hal\HalResponseFactory;
+use Expressive\Hal\ResourceGenerator;
+use Expressive\Hal\HalResponseFactory;
 
 /**
  * @SWG\Get(

@@ -12,7 +12,7 @@ namespace Password\Api\V1\Factory\Action;
 use Password\Api\V1\Action\DeletePasswordAction;
 use Psr\Container\ContainerInterface;
 use Password\Api\V1\Facade\PasswordFacade;
-use Zend\Expressive\Hal\ResourceGeneratorFactory;
+use Expressive\Hal\ResourceGeneratorFactory;
 
 /**
  * Description of DeletePasswordFactory

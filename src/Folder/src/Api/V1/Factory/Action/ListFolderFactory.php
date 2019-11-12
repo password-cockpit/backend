@@ -14,7 +14,7 @@ use Psr\Container\ContainerInterface;
 use Folder\Api\V1\Facade\FolderFacade;
 use User\Api\V1\Facade\UserFacade;
 use User\Api\V1\Facade\PermissionFacade;
-use Zend\Expressive\Hal\ResourceGeneratorFactory;
+use Expressive\Hal\ResourceGeneratorFactory;
 
 /**
  * Description of ListFolderFactory
@@ -36,7 +36,7 @@ class ListFolderFactory
             $container->get(UserFacade::class),
             $container->get(PermissionFacade::class),
             $halResourceGenerator($container),
-            $container->get(\Zend\Expressive\Hal\HalResponseFactory::class)
+            $container->get(\Expressive\Hal\HalResponseFactory::class)
         );
     }
 }

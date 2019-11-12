@@ -6,13 +6,13 @@
  * @license https://github.com/passwordcockpit/backend/blob/master/LICENSE.md BSD 3-Clause License
  */
 
-use Zend\Expressive\Router\RouterInterface;
-use Zend\Expressive\Router\ZendRouter;
+use Expressive\Router\RouterInterface;
+use Expressive\Router\LaminasRouter;
 
 return [
     'dependencies' => [
         'invokables' => [
-            RouterInterface::class => ZendRouter::class
+            RouterInterface::class => LaminasRouter::class
         ]
     ]
 ];

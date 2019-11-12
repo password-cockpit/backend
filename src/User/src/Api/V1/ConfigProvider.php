@@ -8,8 +8,8 @@
 
 namespace User\Api\V1;
 
-use Zend\Expressive\Hal\Metadata\RouteBasedResourceMetadata;
-use Zend\Expressive\Hal\Metadata\RouteBasedCollectionMetadata;
+use Expressive\Hal\Metadata\RouteBasedResourceMetadata;
+use Expressive\Hal\Metadata\RouteBasedCollectionMetadata;
 use User\Api\V1\Entity\User;
 use User\Api\V1\Hydrator\UserHydrator;
 use User\Api\V1\Entity\Permission;
@@ -36,7 +36,7 @@ class ConfigProvider
             'dependencies' => $this->getDependencies(),
             'routes' => $this->getRoutes(),
             'doctrine' => $this->getDoctrine(),
-            'Zend\Expressive\Hal\Metadata\MetadataMap' => $this->getMetadataMap()
+            'Expressive\Hal\Metadata\MetadataMap' => $this->getMetadataMap()
         ];
     }
 

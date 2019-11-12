@@ -11,15 +11,17 @@ namespace Authentication\Api\V1\Action;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Diactoros\Response\JsonResponse;
+use Laminas\Diactoros\Response\JsonResponse;
 use Firebase\JWT\JWT;
 use User\Api\V1\Entity\User;
 use App\Service\ProblemDetailsException;
-use Zend\I18n\Translator\Translator;
-use Zend\Authentication\Adapter\AdapterInterface;
-use Zend\Authentication\Result;
+use Laminas\I18n\Translator\Translator;
+use Laminas\Authentication\Adapter\AdapterInterface;
+use Laminas\Authentication\Result;
 use Authentication\Api\V1\Facade\TokenUserFacade;
 use Authentication\Api\V1\Facade\LoginRequestFacade;
+
+use \Exception;
 
 /**
  *
@@ -249,12 +251,22 @@ class AuthenticationCreateAction implements RequestHandlerInterface
                         new \DateTimeZone('Europe/Zurich')
                     )
                 ]);
-                throw new ProblemDetailsException(
+                // return new JsonResponse(
+                //     [
+                //         "status" => "401",
+                //         "Title" => "Unauthorized",
+                //         "Message" => "Wrong username or password"
+                //     ],
+                //     401
+                // );
+                //throw new Exception("Unauthrorized", 401);
+                $xxx = new ProblemDetailsException(
                     401,
                     $this->translator->translate('Wrong username or password'),
                     $this->translator->translate('Unauthorized'),
                     'https://httpstatus.es/401'
                 );
+                throw $xxx;
                 break;
 
             case Result::FAILURE_IDENTITY_AMBIGUOUS:

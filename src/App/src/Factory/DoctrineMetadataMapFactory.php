@@ -10,10 +10,10 @@ namespace App\Factory;
 
 use Psr\Container\ContainerInterface;
 use App\Service\DoctrineMetadataMap;
-use Zend\Expressive\Hal\Metadata\MetadataMap;
-use Zend\Expressive\Hal\Metadata\AbstractMetadata;
-use Zend\Expressive\Hal\Metadata\Exception;
-use Zend\Expressive\Hal\Metadata\MetadataFactoryInterface;
+use Expressive\Hal\Metadata\MetadataMap;
+use Expressive\Hal\Metadata\AbstractMetadata;
+use Expressive\Hal\Metadata\Exception;
+use Expressive\Hal\Metadata\MetadataFactoryInterface;
 use function array_pop;
 use function class_exists;
 use function class_implements;
@@ -38,7 +38,7 @@ class DoctrineMetadataMapFactory
         }
 
         $metadataFactories =
-            $config['zend-expressive-hal']['metadata-factories'] ?? [];
+            $config['expressive-hal']['metadata-factories'] ?? [];
 
         return $this->populateMetadataMapFromConfig(
             new DoctrineMetadataMap(),

@@ -11,8 +11,8 @@ namespace File\Api\V1;
 
 use File\Api\V1\Entity\File;
 use File\Api\V1\Hydrator\FileHydrator;
-use Zend\Expressive\Hal\Metadata\RouteBasedResourceMetadata;
-use Zend\Expressive\Hal\Metadata\RouteBasedCollectionMetadata;
+use Expressive\Hal\Metadata\RouteBasedResourceMetadata;
+use Expressive\Hal\Metadata\RouteBasedCollectionMetadata;
 
 /**
  * Description of ConfigProvider
@@ -33,7 +33,7 @@ class ConfigProvider
             'dependencies' => $this->getDependencies(),
             'routes' => $this->getRoutes(),
             'doctrine' => $this->getDoctrine(),
-            'Zend\Expressive\Hal\Metadata\MetadataMap' => $this->getMetadataMap()
+            'Expressive\Hal\Metadata\MetadataMap' => $this->getMetadataMap()
         ];
     }
 

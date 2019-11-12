@@ -9,7 +9,7 @@
 namespace App;
 
 use Tuupola\Middleware\JwtAuthentication;
-use Zend\Expressive\Delegate;
+use Expressive\Delegate;
 
 /**
  * The configuration provider for the App module
@@ -43,11 +43,11 @@ class ConfigProvider
     {
         return [
             'aliases' => [
-                'Zend\Expressive\Delegate\DefaultDelegate' => Delegate\NotFoundDelegate::class
+                'Expressive\Delegate\DefaultDelegate' => Delegate\NotFoundDelegate::class
             ],
             'invokable' => [
-                \Zend\Expressive\Helper\ServerUrlHelper::class => \Zend\Expressive\Helper\ServerUrlHelper::class,
-                RouterInterface::class => ZendRouter::class
+                \Expressive\Helper\ServerUrlHelper::class => \Expressive\Helper\ServerUrlHelper::class,
+                RouterInterface::class => LaminasRouter::class
             ],
             'factories' => [
                 Validator\StringParameterValidator::class => Factory\Validator\StringParameterValidatorFactory::class,
@@ -56,22 +56,22 @@ class ConfigProvider
                 Middleware\ContentSecurityMiddleware::class => Factory\ContentSecurityFactory::class,
                 Middleware\OptionsMiddleware::class => Factory\OptionsMiddlewareFactory::class,
                 \Blast\BaseUrl\BaseUrlMiddleware::class => \Blast\BaseUrl\BaseUrlMiddlewareFactory::class,
-                \Zend\Expressive\Application::class => \Zend\Expressive\Container\ApplicationFactory::class,
-                \Zend\Expressive\Delegate\NotFoundDelegate::class => \Zend\Expressive\Container\NotFoundDelegateFactory::class,
-                \Zend\Expressive\Helper\ServerUrlMiddleware::class => \Zend\Expressive\Helper\ServerUrlMiddlewareFactory::class,
-                \Zend\Expressive\Helper\UrlHelper::class => \Zend\Expressive\Helper\UrlHelperFactory::class,
-                \Zend\Expressive\Helper\UrlHelperMiddleware::class => \Zend\Expressive\Helper\UrlHelperMiddlewareFactory::class,
-                \Zend\Stratigility\Middleware\ErrorHandler::class => \Zend\Expressive\Container\ErrorHandlerFactory::class,
-                \Zend\Stratigility\Middleware\ErrorResponseGenerator::class => \Acelaya\ExpressiveErrorHandler\ErrorHandler\Factory\ContentBasedErrorResponseGeneratorFactory::class,
-                \Zend\Stratigility\Middleware\NotFoundHandler::class => \Zend\ProblemDetails\ProblemDetailsNotFoundHandlerFactory::class,
+                \Expressive\Application::class => \Expressive\Container\ApplicationFactory::class,
+                \Expressive\Delegate\NotFoundDelegate::class => \Expressive\Container\NotFoundDelegateFactory::class,
+                \Expressive\Helper\ServerUrlMiddleware::class => \Expressive\Helper\ServerUrlMiddlewareFactory::class,
+                \Expressive\Helper\UrlHelper::class => \Expressive\Helper\UrlHelperFactory::class,
+                \Expressive\Helper\UrlHelperMiddleware::class => \Expressive\Helper\UrlHelperMiddlewareFactory::class,
+                \Laminas\Stratigility\Middleware\ErrorHandler::class => \Expressive\Container\ErrorHandlerFactory::class,
+                \Laminas\Stratigility\Middleware\ErrorResponseGenerator::class => \Acelaya\ExpressiveErrorHandler\ErrorHandler\Factory\ContentBasedErrorResponseGeneratorFactory::class,
+                \Laminas\Stratigility\Middleware\NotFoundHandler::class => \Expressive\ProblemDetails\ProblemDetailsNotFoundHandlerFactory::class,
                 Middleware\CorsMiddleware::class => Factory\CorsMiddlewareFactory::class,
                 //Doctrine factory
                 \Doctrine\ORM\EntityManagerInterface::class => \ContainerInteropDoctrine\EntityManagerFactory::class,
-                \Zend\Expressive\Hal\Metadata\MetadataMap::class => Factory\DoctrineMetadataMapFactory::class,
-                \Zend\I18n\Translator\Translator::class => \Zend\I18n\Translator\TranslatorServiceFactory::class
+                \Expressive\Hal\Metadata\MetadataMap::class => Factory\DoctrineMetadataMapFactory::class,
+                \Laminas\I18n\Translator\Translator::class => \Laminas\I18n\Translator\TranslatorServiceFactory::class
             ],
             'delegators' => [
-                \Zend\Expressive\Application::class => [
+                \Expressive\Application::class => [
                     Service\ApplicationDelegatorFactory::class
                 ]
             ]

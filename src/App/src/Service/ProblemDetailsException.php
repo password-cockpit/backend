@@ -12,13 +12,13 @@
 
 namespace App\Service;
 
-use Zend\ProblemDetails\Exception\CommonProblemDetailsExceptionTrait;
+use Expressive\ProblemDetails\Exception\CommonProblemDetailsExceptionTrait;
 
 /**
  *
  */
 class ProblemDetailsException extends \Exception implements
-    \Zend\ProblemDetails\Exception\ProblemDetailsExceptionInterface
+    \Expressive\ProblemDetails\Exception\ProblemDetailsExceptionInterface
 {
     use CommonProblemDetailsExceptionTrait;
 
