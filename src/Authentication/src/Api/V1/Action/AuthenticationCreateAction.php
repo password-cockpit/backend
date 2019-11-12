@@ -251,22 +251,13 @@ class AuthenticationCreateAction implements RequestHandlerInterface
                         new \DateTimeZone('Europe/Zurich')
                     )
                 ]);
-                // return new JsonResponse(
-                //     [
-                //         "status" => "401",
-                //         "Title" => "Unauthorized",
-                //         "Message" => "Wrong username or password"
-                //     ],
-                //     401
-                // );
-                //throw new Exception("Unauthrorized", 401);
-                $xxx = new ProblemDetailsException(
+                // throw new \Exception("test", 401);
+                throw new ProblemDetailsException(
                     401,
                     $this->translator->translate('Wrong username or password'),
                     $this->translator->translate('Unauthorized'),
                     'https://httpstatus.es/401'
                 );
-                throw $xxx;
                 break;
 
             case Result::FAILURE_IDENTITY_AMBIGUOUS:

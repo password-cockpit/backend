@@ -120,3 +120,22 @@ throw new ProblemDetailsException(
 solves the problem, and I managed to make the Login tests work.
 
 Now, our custom class creates the `ProblemDetailsException` through the constructor, while the documentation now uses a `static function create()`. I utilize the latest version of `zend-problem-details`, so I probably think that the problem is due to this difference.
+
+## 6 - Update after Matthew response on github
+
+The line to be changed was in this format:
+```php
+    ],
+    $cacheConfig['config_cache_path'], 
+);
+```
+
+added the missing `ConfigPostProcessor`:
+```php
+],
+    $cacheConfig['config_cache_path'],
+    [\Laminas\ZendFrameworkBridge\ConfigPostProcessor::class]
+);
+```
+
+

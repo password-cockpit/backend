@@ -51,7 +51,8 @@ $aggregator = new ConfigAggregator(
         // Load development config if it exists
         new PhpFileProvider('config/development.config.php')
     ],
-    $cacheConfig['config_cache_path']
+    $cacheConfig['config_cache_path'],
+    [\Laminas\ZendFrameworkBridge\ConfigPostProcessor::class]
 );
 
 return $aggregator->getMergedConfig();
