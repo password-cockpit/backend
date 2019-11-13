@@ -138,4 +138,13 @@ added the missing `ConfigPostProcessor`:
 );
 ```
 
+To fix the `ProblemDetailsException` problem, I had to add in the pipeline the `$app->pipe(ProblemDetailsMiddleware::class)` middleware instead of the `$app->pipe(ErrorHandler::class)`.
+All the thrown exceptions are now handled correctly, return the correct json instead of the ugly stack strace.
+
+I've looked at the differences of the two `ErrorHandler.php` files, and the only thing that was different was that the old file was a `final class`, while the migrated one was not. But adding the `final` to the new `ErrorHandler.php` was not fixing the problem either. 
+
+We'll go on with the `ProblemDetailsMiddleware`. All the tests passed, and the application is working fine.
+
+Migration successful!
+
 

@@ -63,22 +63,13 @@ class ValidationMiddleware implements MiddlewareInterface
             $errors['errors'] = $this->generateInputErrorMessages($inputFilter);
         }
         if (!empty($errors)) {
-            return new JsonResponse(
-                [
-                    "detail" => "Validation error",
-                    "status" => "400",
-                    "Title" => "Validation error",
-                    "Message" => "Wrong username or password"
-                ],
-                400
+            throw new ProblemDetailsException(
+                400,
+                'Validation error',
+                'Bad Request',
+                'https://httpstatuses.com/400',
+                $errors
             );
-            // throw new ProblemDetailsException(
-            //     400,
-            //     'Validation error',
-            //     'Bad Request',
-            //     'https://httpstatuses.com/400',
-            //     $errors
-            // );
         }
 
         $filteredParams = $inputFilter->getValues(); // get filtered values

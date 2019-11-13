@@ -29,6 +29,7 @@ use App\Middleware\TokenArrayMiddleware;
 use App\Middleware\StrictTransportSecurityMiddleware;
 use Blast\BaseUrl\BaseUrlMiddleware;
 use App\Middleware\ContentSecurityMiddleware;
+use Expressive\ProblemDetails\ProblemDetailsMiddleware;
 
 class ApplicationDelegatorFactory
 {
@@ -56,7 +57,8 @@ class ApplicationDelegatorFactory
         $app->pipe(StrictTransportSecurityMiddleware::class);
         $app->pipe(ContentSecurityMiddleware::class);
 
-        $app->pipe(ErrorHandler::class);
+        // $app->pipe(ErrorHandler::class);
+        $app->pipe(ProblemDetailsMiddleware::class);
         $app->pipe(ServerUrlMiddleware::class);
         $app->pipe(BodyParamsMiddleware::class);
 
